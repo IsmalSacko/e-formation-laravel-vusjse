@@ -1,14 +1,15 @@
 <template>
     <div>
-        <button class="bg-green-500 px-2 py-2 rounded text-white" @click="toggleProgress()">
+        <button class="bg-green-500 px-2 py-2 rounded-xl text-white" @click="toggleProgress()">
             {{ this.isWatched ? 'Terminé' : 'Terminé ?' }}
         </button>
     </div>
 </template>
 
 <script>
-import bus from 'vue3-eventbus'
-import { useSwalSuccess } from '../../Composables/alert';
+import eventBus from 'vue3-eventbus';
+import { useSwalSuccess } from '@/Composables/alert'
+
 export default {
     props: ['episodeId', 'watchedEpisodes'],
     data() {
@@ -28,7 +29,8 @@ export default {
                     if (response.status === 200) {
                         this.isWatched ? useSwalSuccess('Vous êtes de retour cet épisode 🔙') : useSwalSuccess('Episode termié avec succèes, bay ♥️♥️♥️')
                         this.isWatched = !this.isWatched;
-                        bus.emit('toggleProgress', response.data);
+                        eventBus.emit('toggleProgress', response.data);
+
                     }
                 })
                 .catch(error => console.log(error));

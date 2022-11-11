@@ -39,7 +39,7 @@
 
 <script>
 
-import AppLayout from "./../../Layouts/AppLayout.vue";
+import AppLayout from "@/Layouts/AppLayout.vue";
 import progressButton from './progressButton.vue'
 import progressBar from "./progressBar.vue";
 

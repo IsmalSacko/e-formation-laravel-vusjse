@@ -8,7 +8,7 @@ export function useSwalSuccess(message) {
         animation: true,
         position: "top-end",
         showConfirmButton: false,
-        timer: 5000,
+        timer: 1000,
     });
 }
 

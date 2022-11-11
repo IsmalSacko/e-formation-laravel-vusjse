@@ -8,7 +8,10 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 //Vue.prototype.$eventBus = new Vue()
 import eventBus from 'vue3-eventbus'
 
+
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+
+
 
 
 createInertiaApp({
@@ -21,6 +24,7 @@ createInertiaApp({
             .use(eventBus)
             .mount(el);
     },
+
 });
 
 InertiaProgress.init({ color: '#4B5563' });

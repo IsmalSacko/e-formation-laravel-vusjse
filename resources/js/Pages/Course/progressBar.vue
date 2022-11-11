@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import bus from 'vue3-eventbus'
+import eventBus from 'vue3-eventbus';
+
 export default {
 
   props: ['watchedEpisodes', 'episodes'],
@@ -28,7 +29,7 @@ export default {
     }
   },
   mounted() {
-    bus.on('toggleProgress', data => this.watchedEpisodesData = data)
+    eventBus.on('toggleProgress', data => this.watchedEpisodesData = data)
 
   }
 }
