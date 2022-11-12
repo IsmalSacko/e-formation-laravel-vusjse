@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Youtube\YoutubeServices;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
@@ -38,5 +39,9 @@ class AppServiceProvider extends ServiceProvider
                     : (object) [];
             },
         ]);
+        // //I prend l'application danssa globalité
+        $this->app->singleton(YoutubeServices::class, function () {
+            return new YoutubeServices('AIzaSyA6jdX3j943cIc_-4NoQecePd25nPxOtKU');
+        });
     }
 }

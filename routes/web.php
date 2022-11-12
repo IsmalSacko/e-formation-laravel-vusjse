@@ -80,7 +80,12 @@ Route::group([
     })->name('dashboard');
 
 
-    Route::post('/courses', [CouseController::class, 'store'])->name('courses.store');
+
+    Route::get('/course/edit/{id}', [CouseController::class, 'edit'])->name('courses.edit');
+    Route::patch('/course/update/{id}', [CouseController::class, 'update']);
     Route::get('/course/{id}', [CouseController::class, 'show'])->name('courses.show');
+
+
+    Route::post('/courses', [CouseController::class, 'store'])->name('courses.store');
     Route::post('/toggleProgress', [CouseController::class, 'toggleProgress'])->name('courses.toggle');
 });
