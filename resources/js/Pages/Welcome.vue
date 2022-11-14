@@ -24,7 +24,7 @@ defineProps({
       sm:items-center sm:pt-0
     "
   >
-    <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+    <div v-if="canLogin" class="fixed top-0 right-0 px-6 py-4 sm:block">
       <Link
         v-if="$page.props.user"
         :href="route('dashboar')"
@@ -33,39 +33,36 @@ defineProps({
       >
 
       <template v-else>
-        <div class="flex">
-          <div class="bg-gray-600 rounded mr-1">
-            <Link :href="route('login')" class="text-white p-3"
-              >Se connecter
-            </Link>
-          </div>
-
-          <div class="bg-gray-600 rounded ml-1">
-            <Link
+        <div class="fixed top-0 right-0 px-1 py-4 sm:block flex">
+          <Link :href="route('login')" class="text-red-500 p-3 bg-indigo-400 rounded-full"
+          >Se connecter
+          </Link>
+          <Link
               v-if="canRegister"
               :href="route('register')"
-              class="text-white p-3"
-              >S'inscrire
-            </Link>
-          </div>
+              class="text-red-500 p-3 bg-indigo-400 rounded-full ml-2"
+          >S'inscrire
+          </Link>
         </div>
+
+
+
       </template>
     </div>
 
-    <div class="">
-      <!-- <div>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/FX4fTdR1-CA?&autoplay=1&mute=1"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        >
-        </iframe>
-      </div> -->
-      <img class="w-full" src="storage/video/Développemntweb.gif" />
+    <div class="imaga_accueil">
+      <img class=" w-full" src="storage/video/Développemntweb.gif" />
+
     </div>
   </div>
 </template>
+<style>
+
+
+@media screen and (min-width: 300px) {
+  .imaga_accueil{
+    margin-top: 50%;
+  }
+
+}
+</style>

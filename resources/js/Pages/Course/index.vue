@@ -1,7 +1,7 @@
 <template>
   <app-layout>
     <template v-slot:header>
-      <div class="text-4xl bg-indigo-500 text-white text-center p-3">
+      <div class=" bg-indigo-500 text-white text-center p-3 rounded">
         Liste de nos formations
       </div>
     </template>
@@ -13,20 +13,21 @@
     >
       <div class="mx-10 bg-gray-200 rounded shadow p-4">
         <div class="text-sm text-gray-500">
-          Mise en ligne par{{ course.user.name }} -
+          Mise en ligne par {{ course.user.name }} -
           <span class="text-indigo-500 text-sm"
             >{{ course.participants }} participant<span
               v-if="parseInt(course.participants) > 1"
               >s</span
             >
           </span>
-        </div>
-        <div class="flex justify-between items-center">
-          <div class="text-3xl">{{ course.title }}</div>
-          <div class="font-semibold bg-indigo-500 p-2 rounded-full text-white">
+          <div class="font-semibold bg-indigo-500 p-2 rounded-full text-white invisible sm:visible text-center">
             Dureé de la formation
             {{ convert(course.total_duration) }}
           </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="text-3xl">{{ course.title }}</div>
+
           <div class="">{{ course.episodes_count }} Episode(s)</div>
         </div>
         <div>{{ course.description }}</div>
