@@ -112,8 +112,7 @@
                 "
                 :id="'title-' + index"
                 type="text"
-                v-model="form.episodes[index].title"
-              />
+                v-model="form.episodes[index].title"/>
 
               <!-- label de la description -->
               <label

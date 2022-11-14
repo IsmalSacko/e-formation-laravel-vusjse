@@ -86,6 +86,7 @@ Route::group([
     Route::get('/course/{id}', [CouseController::class, 'show'])->name('courses.show');
 
 
+    Route::get('/courses/delete/{id}', [CouseController::class, 'deleteCourse'])->name('courses.delete');
     Route::post('/courses', [CouseController::class, 'store'])->name('courses.store');
     Route::post('/toggleProgress', [CouseController::class, 'toggleProgress'])->name('courses.toggle');
 });

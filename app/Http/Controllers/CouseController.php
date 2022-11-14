@@ -62,7 +62,7 @@ class CouseController extends Controller
 
     /**
      * Méthode d'édition d'une formation
-     *
+     * 
      * @param integer $id
      * @return void
      */
@@ -74,11 +74,20 @@ class CouseController extends Controller
         return Inertia::render('Course/edit', compact('course'));
     }
 
+    public function deleteCourse(int $id)
+    {
+        $course = Course::where('id', $id)->with('episodes')->first();
+        $course->episodes()->delete();
+        $this->authorize('update', $course);
+
+        return Inertia::render('Course/edit', compact('course'));
+    }
+
     /**
      * Méthode de modification d'une formation
      */
 
-    public function update(Request $request)
+    public function update(Request $request, YoutubeServices $ytb)
     {
 
         $course = Course::where('id', $request->id)->with('episodes')->first();
@@ -88,6 +97,7 @@ class CouseController extends Controller
         $course->episodes()->delete();
         foreach ($request->episodes as $episode) {
             $episode['course_id'] = $course->id;
+            $episode['duration'] = $ytb->handleYoutubevideoDuration($episode['video_url']);
             Episode::create($episode);
         }
 
