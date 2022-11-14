@@ -10,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-  <Head title="Welcome" />
+  <Head title="Bienvenu sur " />
 
   <div
     class="
