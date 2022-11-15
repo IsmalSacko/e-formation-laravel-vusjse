@@ -57,6 +57,7 @@
               py-1
               text-sm
               mt-3
+              ml-2
               hover:bg-indigo-700
               rounded
               inline-block
