@@ -79,11 +79,11 @@ const clearPhotoFileInput = () => {
 <template>
     <FormSection @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            Informations du profil
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            Mettez à jour les informations de votre profil et votre adresse e-mail.
         </template>
 
         <template #form>
@@ -106,7 +106,7 @@ const clearPhotoFileInput = () => {
                 </div>
 
                 <SecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
-                    Section une nouvelle photo
+                    Sectionner une nouvelle photo
                 </SecondaryButton>
 
                 <SecondaryButton v-if="user.profile_photo_path" type="button" class="mt-2" @click.prevent="deletePhoto">
@@ -135,12 +135,12 @@ const clearPhotoFileInput = () => {
 
                         <Link :href="route('verification.send')" method="post" as="button"
                             class="underline text-gray-600 hover:text-gray-900" @click.prevent="sendEmailVerification">
-                        Click here to re-send the verification email.
+                                Envoyer un lien de vérification
                         </Link>
                     </p>
 
                     <div v-show="verificationLinkSent" class="mt-2 font-medium text-sm text-green-600">
-                        A new verification link has been sent to your email address.
+                        Un nouveau lien de vérification a été envoyé à votre adresse e-mail.
                     </div>
                 </div>
             </div>
@@ -152,7 +152,8 @@ const clearPhotoFileInput = () => {
             </ActionMessage>
 
             <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                <i class="fa-regular fa-floppy-disk fa-2x "></i>
+
             </PrimaryButton>
         </template>
     </FormSection>
