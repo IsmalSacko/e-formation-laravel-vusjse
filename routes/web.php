@@ -36,6 +36,7 @@
 
 
 use App\Http\Controllers\CouseController;
+use App\Http\Controllers\GoogleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -89,4 +90,9 @@ Route::group([
     Route::get('/courses/delete/{id}', [CouseController::class, 'deleteCourse'])->name('courses.delete');
     Route::post('/courses', [CouseController::class, 'store'])->name('courses.store');
     Route::post('/toggleProgress', [CouseController::class, 'toggleProgress'])->name('courses.toggle');
+});
+
+Route::controller(GoogleController::class)->group(function () {
+    Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
+    Route::get('auth/google/callback', 'handleGoogleCallback');
 });
